@@ -1,0 +1,28 @@
+CREATE DATABASE QuanLySinhVien;
+USE QuanLySinhVien;
+
+CREATE TABLE Faculty (
+    FacultyID INT PRIMARY KEY,
+    FacultyName NVARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Student (
+    StudentID NVARCHAR(10) PRIMARY KEY,
+    FullName NVARCHAR(200) NOT NULL,
+    AverageScore FLOAT NOT NULL,
+    FacultyID INT,
+    FOREIGN KEY (FacultyID) REFERENCES Faculty(FacultyID)
+);
+
+INSERT INTO Faculty (FacultyID, FacultyName) VALUES (1, N'Công Nghệ Thông Tin');
+INSERT INTO Faculty (FacultyID, FacultyName) VALUES (2, N'Ngôn Ngữ Anh');
+INSERT INTO Faculty (FacultyID, FacultyName) VALUES (3, N'Quản trị kinh doanh');
+
+INSERT INTO Student (StudentID, FullName, AverageScore, FacultyID) 
+VALUES ('1611061916', N'Nguyễn Trần Hoàng Lan', 4.5, 1);
+
+INSERT INTO Student (StudentID, FullName, AverageScore, FacultyID) 
+VALUES ('1711060596', N'Đàm Minh Đức', 2.5, 1);
+
+INSERT INTO Student (StudentID, FullName, AverageScore, FacultyID) 
+VALUES ('1711061004', N'Nguyễn Quốc An', 10, 2);
